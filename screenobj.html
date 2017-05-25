@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<h3>your Screen:</h3>
+<div id="screenobj"></div>
+<script>
+var txt="";
+
+txt += "<p>Total width/height:" + screen.width + "*" + screen.height + "</p>";
+txt += "<p>Available width/height:" + screen.availWidth + "*" + screen.availHeight + "</p>";
+txt += "<p>Color depth:" + screen.colorDepth +  "</p>";
+txt += "<p>Color resolution:" + screen.pixelDepth + "</p>";
+document.getElementById("screenobj").innerHTML=txt;
+</script>
+</body>
+</html>
+
+
+

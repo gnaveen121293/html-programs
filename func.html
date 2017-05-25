@@ -1,0 +1,19 @@
+<html>
+<head>
+<script>
+var func=new Function("x", "y","return x*y;");
+function secondFunction()
+{
+var result;
+result=func(10,20);
+document.write(result);
+}
+</script>
+</head>
+<body>
+<p> click ther following button to call  th e function</p>
+<form>
+<input type="button" onclick="secondFunction();" value="caalit">
+</form>
+</body>
+</html>

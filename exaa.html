@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head> 
+<title>form Handling</title>
+<link href="formstyle.css" rel="stylesheet" type="text/css"/>
+<script language="javascript" type="text/javascript">
+alert("hello");
+function checkform(pform1)
+{
+alert("hello");
+var str=pform1.password.value;
+var email=pform1.email.value;
+var phone=pform1.phone.value;
+var cleanstr=phone.replace(/[\(\)\.\-\ ]/g, '');
+var err={};
+alert("hello");
+var validemail=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+if((str.length<4)||(str.length>8))
+{
+err.message="Invalid password length";
+err.field=pform1.password;
+}
+if(!(validemail.test(email)))
+{
+err.message="Invalid email";
+err.field=pform1.email;
+}
+
+if(isNaN(parseInt(cleanstr)))
+{
+err.message="Invalid phone number";
+err.field=pform1.phone;
+}
+if(err.message)
+{
+document.getElementById("divError").innerHTML=err.message;
+err.field.focus();
+return false;
+
+}return true;
+}
+</script>
+</head>
+<body>
+<h1>improved from handling with javascript</h1>
+<form action="" method="post" onsubmit="return checkform(this.form);">
+
+<div id="errmsgbox">
+<div id="divError"></div>
+</div>
+<fieldset class="credentials">
+<legend>Access Credential</legend>
+<table border="0">
+<tr>
+
+<td><label for="username" class="hover">username</label></td>
+<td><input type="text" id="username" class="required text"/>
+<span class="style1">*</span></td>
+</tr>
+<tr>
+<td><label for="password" class="hover">password</label></td>
+<td><input type="password" id="password" class="required text"/>
+<span class="style1">*</span><br />
+<span class="tooltip">Minimum four and maximum eight character</span>
+</tr>
+<tr>
+<td><label for="email">email</label></td>
+<td><input type="text" id="email" class="required  email text"/>
+<span class="style1">*</span></td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>other Information</legend>
+<table border="0">
+<tr>
+<td width="59"><label for="name">name</label</td>
+<td width="207"><input type="text" id="name" class ="required text"/>
+<span class="style1">*</span></td>
+</tr>
+<tr>
+<td><label for="phone">phone</label></td>
+<td><input type="text" id="phone" class="phone text"/></td>
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="submit form" class="submit"/></td>
+</tr>
+<tr>
+<td colspan="2">* = Requied Field</td>
+</tr>
+</table>
+</fieldset>
+</form>
+</body>
+</html>
+
+

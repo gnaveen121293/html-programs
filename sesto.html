@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script>
+function clickCounter()
+{
+if(typeof(Storage) !=="undefined")
+{
+if(sessionStorage.clickCount)
+{
+sessionStorage.clickCount=Number(sessionStorage.clickCount);
+}
+else
+{
+sessionStorage.clickCounter=1;
+}
+document.getElementById("sesto").innerHTML="you have to click"+sessionStorage.clickCount+" time(s) in this session";
+}
+else{
+document.getElementById("sesto").innerHTML="sorry,your browser not store";
+}}
+
+</script>
+</head>
+<body>
+<p><button onclick="clickCounter()" type="button">click me!</button></p>
+<div id="sesto"></div>
+<p>click the button to see the counter increses</p>
+<p>HIIII</p>
+</body>
+</html>
